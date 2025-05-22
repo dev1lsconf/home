@@ -569,3 +569,28 @@ footer a:hover {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
      }
 }
+
+/* Estilos para mensajes de estado del formulario */
+.form-status-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    display: none; /* Oculto por defecto */
+    /* Transiciones opcionales si lo ocultas con JS después de un tiempo */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.form-status-message.success {
+    background-color: #e9ffeb; /* Verde claro */
+    color: #006400; /* Verde oscuro */
+    border: 1px solid #006400;
+}
+
+.form-status-message.error {
+    background-color: #ffebee; /* Rojo claro */
+    color: #d32f2f; /* Rojo oscuro */
+     border: 1px solid #d32f2f;
+}
