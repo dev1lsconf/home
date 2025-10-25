@@ -8,7 +8,7 @@ const Contact: React.FC = () => {
         <p className="text-gray-600 mb-10 text-lg">
             Actualmente estoy buscando nuevas oportunidades y mi bandeja de entrada está siempre abierta. Ya sea que tengas una pregunta o simplemente quieras saludar, ¡haré todo lo posible por responderte!
         </p>
-        <a href="mailto:eric.batista.dev@email.com" className="inline-block px-8 py-4 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition-all duration-300 text-xl">
+        <a href="mailto:ericbatista@gmail.com" className="inline-block px-8 py-4 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition-all duration-300 text-xl">
             ¡Saluda!
         </a>
     </section>
