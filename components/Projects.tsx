@@ -11,12 +11,12 @@ const projects: Project[] = [
     codeUrl: 'https://github.com/dev1lsconf/byd',
   },
   {
-    image: 'https://picsum.photos/seed/passgen/600/400',
-    title: 'Generador de Contraseñas',
-    description: 'Una herramienta útil para generar contraseñas seguras y aleatorias con opciones personalizables de longitud y tipo de caracteres.',
+    image: 'https://res.cloudinary.com/djeqn9kjl/image/upload/v1761402625/Screenshot_From_2025-10-25_16-29-26_yt48lv.png',
+    title: 'twtxt timeline',
+    description: 'Este proyecto es un agregador y lector de feeds twtxt del lado del cliente (frontend). Permite a los usuarios ver un timeline combinado de múltiples "microblogs" en formato texto plano ( un archivo .txt).',
     tags: ['JavaScript', 'HTML', 'CSS'],
-    demoUrl: '#',
-    codeUrl: '#',
+    demoUrl: 'http://dev1ls.sdf.org/timeline/',
+    codeUrl: '',
   },
   {
     image: 'https://picsum.photos/seed/guessnum/600/400',
