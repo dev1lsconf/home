@@ -3,12 +3,12 @@ import { Project } from '../types';
 
 const projects: Project[] = [
   {
-    image: 'https://picsum.photos/seed/todoapp/600/400',
-    title: 'Todo App',
-    description: 'Una aplicación de lista de tareas clásica para gestionar tus actividades diarias. Permite agregar, eliminar y marcar tareas como completadas.',
+    image: 'https://res.cloudinary.com/djeqn9kjl/image/upload/v1761402115/e68b610f-68b7-468b-b08e-e708075e6094_x4zsaw.png',
+    title: 'Batista Doleo y Asociados',
+    description: 'Sitio web funcional y optimizado, con diseño atractivo y navegación intuitiva. Totalmente operativo, listo para recibir visitas y cumplir con los objetivos para los que fue creado. Ofrece una experiencia de usuario fluida y satisfactoria en todos los dispositivos.',
     tags: ['React', 'CSS', 'State Management'],
-    demoUrl: '#',
-    codeUrl: '#',
+    demoUrl: 'https://www.batistaydoleo.com/',
+    codeUrl: 'https://github.com/dev1lsconf/byd',
   },
   {
     image: 'https://picsum.photos/seed/passgen/600/400',
