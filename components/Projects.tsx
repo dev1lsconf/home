@@ -13,7 +13,7 @@ const projects: Project[] = [
   {
     image: 'https://res.cloudinary.com/djeqn9kjl/image/upload/v1761402625/Screenshot_From_2025-10-25_16-29-26_yt48lv.png',
     title: 'twtxt timeline',
-    description: 'Este proyecto es un agregador y lector de feeds twtxt del lado del cliente (frontend). Permite a los usuarios ver un timeline combinado de múltiples "microblogs" en formato texto plano ( un archivo .txt).',
+    description: 'Este proyecto es una red social descentralizada y lector de feeds twtxt del lado del cliente (frontend). Permite a los usuarios ver un timeline combinado de múltiples "microblogs" en formato texto plano ( un archivo .txt).',
     tags: ['JavaScript', 'HTML', 'CSS'],
     demoUrl: 'http://dev1ls.sdf.org/timeline/',
     codeUrl: '',
