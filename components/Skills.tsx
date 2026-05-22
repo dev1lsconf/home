@@ -3,8 +3,8 @@ import { Skill } from '../types';
 
 const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center mb-12">
-    {title}
-    <span className="h-px bg-gray-200 flex-grow ml-6"></span>
+    <span className="shrink-0">{title}</span>
+    <span className="h-px bg-gradient-to-r from-gray-200 to-transparent flex-grow ml-6"></span>
   </h2>
 );
 
@@ -20,17 +20,19 @@ const skills: Skill[] = [
 ];
 
 const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => (
-    <div className="bg-white border border-gray-200 p-4 rounded-lg flex flex-col items-center justify-center text-center space-y-3 transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/10">
+  <div className="group relative bg-white border border-gray-200/80 p-5 rounded-xl flex flex-col items-center justify-center text-center space-y-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-200/50">
+    <div className="transition-transform duration-300 group-hover:scale-110">
       {skill.icon}
-      <span className="text-gray-700 font-mono text-base">{skill.name}</span>
     </div>
+    <span className="text-gray-700 font-mono text-sm font-medium">{skill.name}</span>
+  </div>
 );
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 border-b border-gray-200">
+    <section id="skills" className="py-24 border-b border-gray-200/80">
       <SectionTitle title="Habilidades" />
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 md:gap-6">
         {skills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />
         ))}

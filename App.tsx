@@ -9,17 +9,24 @@ import AIChatWidget from './components/AIChatWidget';
 
 const App: React.FC = () => {
   return (
-    <div className="relative">
+    <div className="relative bg-grid min-h-screen">
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-300/5 rounded-full blur-3xl"></div>
+      </div>
       <Header />
-      <main className="container mx-auto px-6 md:px-12 lg:px-24">
+      <main className="relative container mx-auto px-6 md:px-12 lg:px-24">
         <Hero />
         <About />
         <Skills />
         <Projects />
         <Contact />
       </main>
-      <footer className="text-center py-8 text-gray-600 text-base">
-        <div>Designed & Built by Eric Batista</div>
+      <footer className="relative text-center py-12 text-gray-500 text-base">
+        <div className="max-w-xs mx-auto border-t border-gray-200 pt-8">
+          <p className="mb-2">Diseñado y construido por</p>
+          <p className="font-semibold text-gray-700">Eric Batista</p>
+        </div>
       </footer>
       <AIChatWidget />
     </div>
