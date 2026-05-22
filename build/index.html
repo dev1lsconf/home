@@ -5,9 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eric Batista - Portfolio</title>
+    <script>
+      if (localStorage.getItem('darkMode') === 'true' || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             animation: {
@@ -44,12 +50,21 @@
         font-family: 'Poppins', sans-serif;
         background-color: #f5f5f7;
         color: #1d1d1f;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .dark body,
+      body.dark {
+        background-color: #0f172a;
+        color: #e2e8f0;
       }
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
         background: #f5f5f7;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1e293b;
       }
       ::-webkit-scrollbar-thumb {
         background: #d1d1d6;
@@ -58,10 +73,20 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #b1b1b6;
       }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #475569;
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
       .bg-grid {
         background-image: 
           radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.06) 1px, transparent 0);
         background-size: 40px 40px;
+      }
+      .dark .bg-grid {
+        background-image: 
+          radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.08) 1px, transparent 0);
       }
       .gradient-text {
         background: linear-gradient(135deg, #2563eb, #60a5fa);
@@ -81,7 +106,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index--3ty7siW.js"></script>
+  <script type="module" crossorigin src="/assets/index-DBsj0S7E.js"></script>
 </head>
   <body>
     <div id="root"></div>

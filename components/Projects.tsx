@@ -37,19 +37,19 @@ const projects: Project[] = [
 ];
 
 const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
-  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center mb-12">
+  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white flex items-center mb-12">
     <span className="shrink-0">{title}</span>
-    <span className="h-px bg-gradient-to-r from-gray-200 to-transparent flex-grow ml-6"></span>
+    <span className="h-px bg-gradient-to-r from-gray-200 dark:from-gray-700 to-transparent flex-grow ml-6"></span>
   </h2>
 );
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
-  <div className="group bg-white border border-gray-200/80 rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10">
+  <div className="group bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/50 rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10">
     <div className="relative overflow-hidden">
       <img src={project.image} alt={project.title} className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-105" />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
         {project.demoUrl && project.demoUrl !== '#' && (
-          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-all hover:scale-105 shadow-lg">
+          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-semibold rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition-all hover:scale-105 shadow-lg">
             Demo
           </a>
         )}
@@ -61,11 +61,11 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
       </div>
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">{project.title}</h3>
-      <p className="text-gray-500 text-sm leading-relaxed mb-4">{project.description}</p>
+      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">{project.title}</h3>
+      <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">{project.description}</p>
       <div className="flex flex-wrap gap-2">
         {project.tags.map(tag => (
-          <span key={tag} className="text-xs font-mono text-blue-600 bg-blue-50 border border-blue-100/50 px-3 py-1 rounded-full">{tag}</span>
+          <span key={tag} className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 border border-blue-100/50 dark:border-blue-400/20 px-3 py-1 rounded-full">{tag}</span>
         ))}
       </div>
     </div>
@@ -74,7 +74,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-24 border-b border-gray-200/80">
+    <section id="projects" className="py-24 border-b border-gray-200/80 dark:border-gray-700/50">
       <SectionTitle title="Proyectos" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, index) => (

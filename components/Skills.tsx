@@ -2,9 +2,9 @@ import React from 'react';
 import { Skill } from '../types';
 
 const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
-  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center mb-12">
+  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white flex items-center mb-12">
     <span className="shrink-0">{title}</span>
-    <span className="h-px bg-gradient-to-r from-gray-200 to-transparent flex-grow ml-6"></span>
+    <span className="h-px bg-gradient-to-r from-gray-200 dark:from-gray-700 to-transparent flex-grow ml-6"></span>
   </h2>
 );
 
@@ -20,17 +20,17 @@ const skills: Skill[] = [
 ];
 
 const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => (
-  <div className="group relative bg-white border border-gray-200/80 p-5 rounded-xl flex flex-col items-center justify-center text-center space-y-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-200/50">
+  <div className="group relative bg-white dark:bg-slate-800/80 border border-gray-200/80 dark:border-slate-700/50 p-5 rounded-xl flex flex-col items-center justify-center text-center space-y-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-200/50 dark:hover:border-blue-500/30">
     <div className="transition-transform duration-300 group-hover:scale-110">
       {skill.icon}
     </div>
-    <span className="text-gray-700 font-mono text-sm font-medium">{skill.name}</span>
+    <span className="text-gray-700 dark:text-gray-300 font-mono text-sm font-medium">{skill.name}</span>
   </div>
 );
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 border-b border-gray-200/80">
+    <section id="skills" className="py-24 border-b border-gray-200/80 dark:border-gray-700/50">
       <SectionTitle title="Habilidades" />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 md:gap-6">
         {skills.map((skill) => (

@@ -62,7 +62,7 @@ const AIChatWidget: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-[calc(100vw-3rem)] max-w-sm h-[65vh] bg-white border border-gray-200/80 rounded-2xl shadow-2xl shadow-blue-500/10 flex flex-col z-50 animate-fade-in overflow-hidden">
+        <div className="fixed bottom-24 right-6 w-[calc(100vw-3rem)] max-w-sm h-[65vh] bg-white dark:bg-slate-800 border border-gray-200/80 dark:border-slate-700/50 rounded-2xl shadow-2xl shadow-blue-500/10 dark:shadow-blue-500/5 flex flex-col z-50 animate-fade-in overflow-hidden">
           <header className="bg-gradient-to-r from-blue-600 to-blue-500 p-4 text-white font-bold flex justify-between items-center">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
@@ -78,13 +78,13 @@ const AIChatWidget: React.FC = () => {
             </button>
           </header>
 
-          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50/50">
+          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50/50 dark:bg-slate-900/50">
             {messages.map((msg) => (
               <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[85%] p-3.5 rounded-2xl text-sm leading-relaxed ${
                   msg.sender === 'user' 
                     ? 'bg-blue-600 text-white rounded-br-md' 
-                    : 'bg-white text-gray-800 border border-gray-100 shadow-sm rounded-bl-md'
+                    : 'bg-white dark:bg-slate-700 text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-slate-600 shadow-sm rounded-bl-md'
                 }`}>
                   {msg.text}
                 </div>
@@ -92,7 +92,7 @@ const AIChatWidget: React.FC = () => {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white text-gray-800 border border-gray-100 shadow-sm p-4 rounded-2xl rounded-bl-md">
+                <div className="bg-white dark:bg-slate-700 text-gray-800 dark:text-gray-200 border border-gray-100 dark:border-slate-600 shadow-sm p-4 rounded-2xl rounded-bl-md">
                   <div className="flex items-center space-x-2">
                     <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
                     <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
@@ -104,17 +104,17 @@ const AIChatWidget: React.FC = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSendMessage} className="p-4 border-t border-gray-200/80 bg-white">
-            <div className="flex items-center gap-2 bg-gray-100 rounded-xl px-4 py-1.5 focus-within:ring-2 focus-within:ring-blue-500/20 focus-within:bg-white transition-all">
+          <form onSubmit={handleSendMessage} className="p-4 border-t border-gray-200/80 dark:border-slate-700/50 bg-white dark:bg-slate-800">
+            <div className="flex items-center gap-2 bg-gray-100 dark:bg-slate-700/50 rounded-xl px-4 py-1.5 focus-within:ring-2 focus-within:ring-blue-500/20 focus-within:bg-white dark:focus-within:bg-slate-700 transition-all">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Pregúntame algo..."
-                className="w-full bg-transparent py-2.5 text-gray-800 focus:outline-none text-sm"
+                className="w-full bg-transparent py-2.5 text-gray-800 dark:text-gray-200 focus:outline-none text-sm placeholder-gray-400 dark:placeholder-gray-500"
                 disabled={isLoading}
               />
-              <button type="submit" className="p-2 text-blue-600 hover:text-blue-500 disabled:text-gray-300 transition-colors shrink-0" disabled={isLoading || !input.trim()}>
+              <button type="submit" className="p-2 text-blue-600 dark:text-blue-400 hover:text-blue-500 disabled:text-gray-300 dark:disabled:text-gray-600 transition-colors shrink-0" disabled={isLoading || !input.trim()}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               </button>
             </div>

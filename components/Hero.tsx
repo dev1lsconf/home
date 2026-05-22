@@ -8,13 +8,13 @@ const Hero: React.FC = () => {
         <h1 className="text-lg md:text-xl font-mono text-blue-600 mb-4 animate-fade-in">
           <span className="inline-block">&gt; Hola, mi nombre es</span>
         </h1>
-        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
           Eric Batista.
         </h2>
-        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-400 mt-2 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-400 dark:text-gray-500 mt-2 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
           <span className="gradient-text">Construyo cosas para la web.</span>
         </h3>
-        <p className="mt-6 max-w-xl text-gray-600 leading-relaxed text-lg animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+        <p className="mt-6 max-w-xl text-gray-600 dark:text-gray-400 leading-relaxed text-lg animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
           Soy un desarrollador Full Stack especializado en crear (y ocasionalmente diseñar) experiencias digitales excepcionales. Actualmente, estoy enfocado en construir productos accesibles y centrados en el usuario.
         </p>
         <div className="mt-12 flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>

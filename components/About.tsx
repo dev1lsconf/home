@@ -1,19 +1,19 @@
 import React from 'react';
 
 const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
-  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 flex items-center mb-12">
+  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white flex items-center mb-12">
     <span className="shrink-0">{title}</span>
-    <span className="h-px bg-gradient-to-r from-gray-200 to-transparent flex-grow ml-6"></span>
+    <span className="h-px bg-gradient-to-r from-gray-200 dark:from-gray-700 to-transparent flex-grow ml-6"></span>
   </h2>
 );
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 border-b border-gray-200/80">
+    <section id="about" className="py-24 border-b border-gray-200/80 dark:border-gray-700/50">
       <SectionTitle title="Sobre mí" />
       <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
-        <div className="md:col-span-3 text-gray-600 space-y-5 leading-relaxed text-lg">
-          <p className="text-xl text-gray-800 font-semibold">
+        <div className="md:col-span-3 text-gray-600 dark:text-gray-400 space-y-5 leading-relaxed text-lg">
+          <p className="text-xl text-gray-800 dark:text-gray-200 font-semibold">
             ¡Hola! Soy Eric, un apasionado desarrollador web con un fuerte enfoque en crear experiencias de usuario intuitivas y atractivas.
           </p>
           <p>
