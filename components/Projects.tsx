@@ -44,7 +44,7 @@ const ProjectRow: React.FC<{ project: Project; index: number }> = ({ project, in
   const isReversed = index % 2 !== 0;
 
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${index > 0 ? 'mt-32' : ''}`}>
+    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${index > 0 ? 'mt-32' : ''}`} data-animate="project-row">
       <div className={`${isReversed ? 'lg:order-2' : ''}`}>
         <div className="group relative bg-carbon border border-steel rounded-2xl overflow-hidden transition-all duration-500 hover:border-indigo/30 hover:shadow-glow">
           <img

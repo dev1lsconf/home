@@ -33,8 +33,8 @@ const services: Service[] = [
 
 const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, index }) => (
   <div
+    data-animate-item
     className="group relative bg-carbon border border-steel rounded-2xl p-8 transition-all duration-500 hover:-translate-y-1 hover:border-indigo/30 hover:shadow-glow"
-    style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
   >
     <div className="w-12 h-12 rounded-xl bg-indigo/10 text-indigo flex items-center justify-center mb-6 group-hover:bg-indigo/20 transition-colors duration-300">
       {service.icon}
@@ -53,7 +53,7 @@ const Services: React.FC = () => {
         <h2 className="font-display text-4xl md:text-5xl font-bold text-snow mb-4">Lo que hago</h2>
         <p className="text-mist text-base leading-relaxed">Construyo productos digitales que resuelven problemas reales. Sin ruido, sin sobreingeniería.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16" data-animate="service-stagger">
         {services.map((service, i) => (
           <ServiceCard key={service.title} service={service} index={i} />
         ))}

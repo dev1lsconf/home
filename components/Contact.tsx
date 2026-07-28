@@ -14,8 +14,8 @@ const Contact: React.FC = () => {
         <h2 className="font-display text-4xl md:text-5xl font-bold text-snow mb-4">¿Tienes un proyecto en mente?</h2>
         <p className="text-mist text-base leading-relaxed">Hablemos. No importa si es una idea temprana o un proyecto definido — siempre estoy abierto a una buena conversación.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div className="bg-carbon border border-steel rounded-2xl p-8 md:p-10 flex flex-col justify-between">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" data-animate="contact-stagger">
+        <div className="bg-carbon border border-steel rounded-2xl p-8 md:p-10 flex flex-col justify-between" data-animate-item>
           <div>
             <div className="w-12 h-12 rounded-xl bg-indigo/10 text-indigo flex items-center justify-center mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
             Agendar llamada →
           </a>
         </div>
-        <div className="bg-carbon border border-steel rounded-2xl p-8 md:p-10">
+        <div className="bg-carbon border border-steel rounded-2xl p-8 md:p-10" data-animate-item>
           <h3 className="font-display text-xl font-bold text-snow mb-6">O escríbeme</h3>
           <form
             action="https://formsubmit.co/ericbatista@gmail.com"

@@ -20,7 +20,7 @@ const Process: React.FC = () => {
         <div className="absolute left-[19px] top-0 bottom-0 w-px bg-steel hidden md:block" />
         <div className="space-y-12 md:space-y-0">
           {steps.map((step) => (
-            <div key={step.number} className="md:flex md:items-start md:gap-12 group">
+            <div key={step.number} data-animate="process-step" className="md:flex md:items-start md:gap-12 group">
               <div className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-carbon border border-steel text-indigo font-mono text-sm font-bold shrink-0 relative z-10 group-hover:border-indigo group-hover:bg-indigo/10 transition-all duration-300">
                 {step.number}
               </div>
