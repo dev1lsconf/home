@@ -7,12 +7,27 @@ export interface Project {
   tags: string[];
   demoUrl: string;
   codeUrl: string;
+  metrics?: { label: string; value: string }[];
 }
 
-export interface Skill {
-  name: string;
-  // FIX: Replaced JSX.Element with ReactElement and imported it to resolve 'Cannot find namespace JSX' error.
+export interface Service {
   icon: ReactElement;
+  title: string;
+  subtitle: string;
+}
+
+export interface ProcessStep {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
 }
 
 export interface Message {

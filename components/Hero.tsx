@@ -1,32 +1,43 @@
 import React from 'react';
+import HeroScene from './HeroScene';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center items-start pt-24">
-      <div className="absolute top-1/3 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center items-start pt-24 overflow-hidden">
+      <HeroScene />
       <div className="relative max-w-4xl">
-        <h1 className="text-lg md:text-xl font-mono text-blue-600 mb-4 animate-fade-in">
-          <span className="inline-block">&gt; Hola, mi nombre es</span>
-        </h1>
-        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-          Eric Batista.
-        </h2>
-        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-400 dark:text-gray-500 mt-2 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-          <span className="gradient-text">Construyo cosas para la web.</span>
-        </h3>
-        <p className="mt-6 max-w-xl text-gray-600 dark:text-gray-400 leading-relaxed text-lg animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-          Soy un desarrollador Full Stack especializado en crear (y ocasionalmente diseñar) experiencias digitales excepcionales. Actualmente, estoy enfocado en construir productos accesibles y centrados en el usuario.
+        <p className="font-mono text-sm text-indigo tracking-widest uppercase mb-8 animate-fade-in">
+          — 01 · Full Stack Developer
         </p>
-        <div className="mt-12 flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-          <a href="#projects" className="group relative px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 text-lg shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5">
-            Ver mis proyectos
-            <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+        <h1 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[0.9] font-bold animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+          Diseño y código
+          <br />
+          <span className="gradient-text">donde cada píxel importa.</span>
+        </h1>
+        <p className="mt-8 max-w-xl text-lg text-mist leading-relaxed font-body animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+          Full Stack Developer. Transformo ideas complejas en productos web rápidos, accesibles y visualmente impecables.
+        </p>
+        <div className="mt-12 flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+          <a
+            href="#projects"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-indigo text-snow font-semibold rounded-lg hover:bg-indigo-deep transition-all duration-300 text-lg shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5"
+          >
+            Ver mi trabajo
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
-          <a href="https://drive.google.com/file/d/1N5smIuYZXgkyKMFbwHNpeuMet-cQ3Ffq/view?usp=sharing" className="group relative px-8 py-4 border-2 border-blue-600/30 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 text-lg hover:-translate-y-0.5">
-            <span className="inline-block mr-2">↓</span>
+          <a
+            href="https://drive.google.com/file/d/1N5smIuYZXgkyKMFbwHNpeuMet-cQ3Ffq/view?usp=sharing"
+            className="group inline-flex items-center gap-2 px-8 py-4 border border-steel text-mist rounded-lg hover:bg-graphite hover:text-snow transition-all duration-300 text-lg hover:-translate-y-0.5"
+          >
+            <span className="inline-block">↓</span>
             Descargar CV
           </a>
         </div>
+      </div>
+      <div className="absolute bottom-12 left-0 right-0 flex justify-center animate-float">
+        <a href="#services" className="text-mist hover:text-snow transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
       </div>
     </section>
   );
