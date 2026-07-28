@@ -40,15 +40,26 @@ const CodeEditor: React.FC = () => {
             <span className="text-[#a6e3a1]">'Full Stack Developer'</span>
             {','}
             {'\n'}
+            <span className="text-[#89b4fa]">    location</span>
+            {": "}
+            <span className="text-[#a6e3a1]">'Barcelona'</span>
+            {','}
+            {'\n'}
             <span className="text-[#89b4fa]">    stack</span>
             {": ["}
+            <span className="text-[#a6e3a1]">'Next.js'</span>
+            {', '}
             <span className="text-[#a6e3a1]">'React'</span>
             {', '}
             <span className="text-[#a6e3a1]">'TypeScript'</span>
             {', '}
-            <span className="text-[#a6e3a1]">'Tailwind'</span>
+            <span className="text-[#a6e3a1]">'JavaScript'</span>
             {', '}
-            <span className="text-[#a6e3a1]">'Node'</span>
+            <span className="text-[#a6e3a1]">'Python'</span>
+            {', '}
+            <span className="text-[#a6e3a1]">'Docker'</span>
+            {', '}
+            <span className="text-[#a6e3a1]">'Linux'</span>
             {'],'}
             {'\n'}
             <span className="text-[#89b4fa]">    passion</span>

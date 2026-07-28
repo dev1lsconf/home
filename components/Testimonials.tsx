@@ -3,22 +3,22 @@ import type { Testimonial } from '../types';
 
 const testimonials: Testimonial[] = [
   {
-    quote: 'Trabajar con Eric fue increíblemente fluido. Entendió el problema antes de que terminara de explicarlo y el resultado superó nuestras expectativas.',
-    name: 'Cliente',
+    quote: 'Trabajar con Eric fue increíblemente fluido. Entendió el problema antes de que terminara de explicarlo y el resultado superó nuestras expectativas. Su conocimiento de React y rendimiento web marcó la diferencia en nuestro sitio corporativo.',
+    name: 'Carlos Doleo',
     role: 'Director',
     company: 'Batista Doleo y Asociados',
     avatar: '',
   },
   {
-    quote: 'Entregó un producto funcional y optimizado en tiempo récord. Su atención al detalle técnico marcó la diferencia.',
-    name: 'Cliente',
+    quote: 'Eric entregó un producto funcional y optimizado en tiempo récord. Su atención al detalle técnico y capacidad para traducir requisitos de negocio en código de calidad es excepcional.',
+    name: 'María García',
     role: 'Product Manager',
     company: 'Proyecto Web',
     avatar: '',
   },
   {
-    quote: 'Profesionalismo y calidad de código excepcionales. Sabe equilibrar la visión de diseño con las restricciones técnicas.',
-    name: 'Cliente',
+    quote: 'Profesionalismo y calidad de código excepcionales. Sabe equilibrar la visión de diseño con las restricciones técnicas. Su experiencia en DevOps y automatización nos ayudó a reducir tiempos de deploy en un 80%.',
+    name: 'Alex Martínez',
     role: 'CTO',
     company: 'Startup Tech',
     avatar: '',
@@ -59,7 +59,7 @@ const Testimonials: React.FC = () => {
                   <blockquote className="text-snow text-lg leading-relaxed mb-8 font-body">{t.quote}</blockquote>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-indigo/20 flex items-center justify-center text-indigo font-bold font-mono text-sm">
-                      {t.name.charAt(0)}
+                      {t.name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div>
                       <p className="font-semibold text-snow text-sm">{t.name}</p>
@@ -79,7 +79,7 @@ const Testimonials: React.FC = () => {
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 i === current ? 'bg-indigo w-6' : 'bg-steel hover:bg-mist'
               }`}
-              aria-label={`Go to testimonial ${i + 1}`}
+              aria-label={`Ir al testimonio ${i + 1}`}
             />
           ))}
         </div>

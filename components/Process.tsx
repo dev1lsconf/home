@@ -2,10 +2,10 @@ import React from 'react';
 import type { ProcessStep } from '../types';
 
 const steps: ProcessStep[] = [
-  { number: '01', title: 'Descubrimiento', description: 'Entiendo tu negocio, usuarios y objetivo antes de escribir una línea de código.' },
-  { number: '02', title: 'Arquitectura', description: 'Wireframes, flujos de interacción y decisiones técnicas que sostienen el producto.' },
-  { number: '03', title: 'Construcción', description: 'Código modular, testing continuo e iteraciones rápidas con feedback constante.' },
-  { number: '04', title: 'Entrega & Grow', description: 'Deploy, monitoreo, mejoras continuas. El producto nunca está realmente terminado.' },
+  { number: '01', title: 'Descubrimiento', description: 'Entiendo tu negocio, usuarios y objetivo antes de escribir una línea de código. Análisis de requisitos, definición de alcance y planificación de arquitectura.' },
+  { number: '02', title: 'Arquitectura', description: 'Wireframes, flujos de interacción y decisiones técnicas que sostienen el producto. Elección de stack (Next.js, React, JavaScript, Python) y diseño de sistemas escalables.' },
+  { number: '03', title: 'Construcción', description: 'Código modular, testing continuo e iteraciones rápidas con feedback constante. Aplico metodologías ágiles con entregas incrementales cada 1-2 semanas.' },
+  { number: '04', title: 'Entrega & Grow', description: 'Deploy automatizado con CI/CD, monitoreo continuo, optimización de rendimiento y SEO. El producto nunca está realmente terminado — siempre hay margen de mejora.' },
 ];
 
 const Process: React.FC = () => {
@@ -14,7 +14,7 @@ const Process: React.FC = () => {
       <div className="max-w-xs">
         <p className="font-mono text-xs text-indigo tracking-widest uppercase mb-4">— 03 · Proceso</p>
         <h2 className="font-display text-4xl md:text-5xl font-bold text-snow mb-4">Cómo trabajo</h2>
-        <p className="text-mist text-base leading-relaxed">Un proceso iterativo y transparente. Sin cajas negras ni sorpresas.</p>
+        <p className="text-mist text-base leading-relaxed">Un proceso iterativo y transparente. Sin cajas negras ni sorpresas. Metodología ágil con entregas frecuentes.</p>
       </div>
       <div className="mt-16 relative">
         <div className="absolute left-[19px] top-0 bottom-0 w-px bg-steel hidden md:block" />

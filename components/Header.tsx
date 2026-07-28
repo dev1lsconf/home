@@ -64,12 +64,13 @@ const Header: React.FC = () => {
         : 'bg-transparent'
     }`}>
       <nav className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-5 flex justify-between items-center">
-        <a href="#hero" className="font-display text-xl font-bold text-snow hover:text-indigo transition-colors">EB</a>
+        <a href="#hero" className="font-display text-xl font-bold text-snow hover:text-indigo transition-colors" aria-label="Eric Batista - Inicio">Eric Batista</a>
 
         <div className="hidden md:flex items-center space-x-8">
           <NavLink href="#about">Sobre mí</NavLink>
           <NavLink href="#services">Servicios</NavLink>
           <NavLink href="#projects">Proyectos</NavLink>
+          <NavLink href="#process">Metodología</NavLink>
           <NavLink href="#contact">Contacto</NavLink>
         </div>
 
@@ -84,7 +85,7 @@ const Header: React.FC = () => {
           <button
             onClick={toggleDark}
             className="p-2 text-mist hover:text-snow transition-colors"
-            aria-label="Toggle dark mode"
+            aria-label="Alternar modo oscuro"
           >
             {isDark ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -96,7 +97,7 @@ const Header: React.FC = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden ml-1 p-2 text-mist hover:text-snow transition-colors"
-            aria-label="Toggle menu"
+            aria-label="Abrir menú de navegación"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               {isMobileMenuOpen ? (
@@ -122,6 +123,7 @@ const Header: React.FC = () => {
             <NavLink href="#about" onClick={closeMenu}>Sobre mí</NavLink>
             <NavLink href="#services" onClick={closeMenu}>Servicios</NavLink>
             <NavLink href="#projects" onClick={closeMenu}>Proyectos</NavLink>
+            <NavLink href="#process" onClick={closeMenu}>Metodología</NavLink>
             <NavLink href="#contact" onClick={closeMenu}>Contacto</NavLink>
             <div className="flex space-x-6 mt-8 pt-8 border-t border-steel">
               <SocialLink href="https://github.com/dev1lsconf">

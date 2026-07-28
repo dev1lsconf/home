@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 
+const faqData = [
+  { q: '¿Qué tecnologías usas como desarrollador Full Stack?', a: 'Trabajo principalmente con Next.js, React, TypeScript, JavaScript y Tailwind CSS para frontend. Para backend uso Node.js, Python y FastAPI. En infraestructura: Docker, Linux (NixOS, OpenBSD), CI/CD y automatización DevOps.' },
+  { q: '¿Trabajas como desarrollador freelance en Barcelona?', a: 'Sí, soy desarrollador freelance con sede en Barcelona. Trabajo tanto presencial como remoto con startups y empresas de toda España.' },
+  { q: '¿Cuánto tiempo toma desarrollar una web o aplicación?', a: 'Depende del alcance. Un sitio web corporativo puede llevar 2-3 semanas. Una aplicación web completa con backend, API y panel de administración puede llevar 4-8 semanas. Siempre doy estimaciones claras antes de empezar.' },
+  { q: '¿Ofreces servicios de SEO técnico y optimización de rendimiento?', a: 'Sí. Optimizo Core Web Vitals, implemento schema.org, OpenGraph, sitemaps, robots.txt y garantizo puntuaciones Lighthouse 95+ en producción.' },
+  { q: '¿Tienes experiencia con Node.js y desarrollo backend?', a: 'Sí, desarrollo APIs REST con Node.js, Express y Python. Trabajo con bases de datos SQL/NoSQL y despliegue en entornos Docker. También tengo experiencia con PHP y Python para backend.' },
+  { q: '¿Qué incluye un servicio DevOps completo?', a: 'Configuración de servidores Linux, Dockerización de aplicaciones, pipelines CI/CD (GitHub Actions), monitoreo, backups automatizados y hardening de seguridad.' },
+];
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -86,6 +96,64 @@ const Contact: React.FC = () => {
           </form>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <div className="max-w-4xl mx-auto mt-24" itemScope itemType="https://schema.org/FAQPage">
+        <div className="text-center mb-12">
+          <p className="font-mono text-xs text-indigo tracking-widest uppercase mb-4">— Preguntas Frecuentes</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-snow mb-4">FAQ - Desarrollador Full Stack Barcelona</h2>
+          <p className="text-mist text-base leading-relaxed max-w-xl mx-auto">Respuestas rápidas a las dudas más comunes sobre mi trabajo como desarrollador freelance.</p>
+        </div>
+        <div className="space-y-3">
+          {faqData.map((faq, i) => (
+            <div
+              key={i}
+              className="bg-carbon border border-steel rounded-xl overflow-hidden"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
+            >
+              <button
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="w-full flex justify-between items-center p-5 text-left text-snow font-medium hover:bg-graphite transition-colors"
+                aria-expanded={openFaq === i}
+              >
+                <span itemProp="name">{faq.q}</span>
+                <svg
+                  className={`w-5 h-5 text-mist transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              {openFaq === i && (
+                <div className="px-5 pb-5 text-mist text-sm leading-relaxed" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                  <div itemProp="text">{faq.a}</div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FAQ JSON-LD for indexation */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqData.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f.a
+              }
+            }))
+          })
+        }}
+      />
     </section>
   );
 };

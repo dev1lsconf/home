@@ -5,8 +5,8 @@ const projects: Project[] = [
   {
     image: 'https://res.cloudinary.com/djeqn9kjl/image/upload/v1761402115/e68b610f-68b7-468b-b08e-e708075e6094_x4zsaw.png',
     title: 'Batista Doleo y Asociados',
-    description: 'Sitio web funcional y optimizado para un despacho legal. Diseño profesional, navegación intuitiva y experiencia fluida en todos los dispositivos.',
-    tags: ['React', 'CSS', 'Performance'],
+    description: 'Sitio web funcional y optimizado para un despacho legal. Construido con React y optimizado para rendimiento (Lighthouse 98). Diseño profesional, navegación intuitiva y experiencia fluida en todos los dispositivos.',
+    tags: ['React', 'CSS', 'Performance', 'UX'],
     demoUrl: 'https://www.batistaydoleo.com/',
     codeUrl: 'https://github.com/dev1lsconf/byd',
     metrics: [{ label: 'Lighthouse', value: '98' }, { label: 'Pages', value: '6' }, { label: 'Uptime', value: '99.9%' }],
@@ -14,8 +14,8 @@ const projects: Project[] = [
   {
     image: 'https://res.cloudinary.com/djeqn9kjl/image/upload/v1761402625/Screenshot_From_2025-10-25_16-29-26_yt48lv.png',
     title: 'twtxt timeline',
-    description: 'Red social descentralizada cliente-side. Lector de feeds twtxt que consume múltiples microblogs en texto plano desde el frontend.',
-    tags: ['JavaScript', 'HTML', 'CSS'],
+    description: 'Red social descentralizada cliente-side construida con JavaScript vanilla. Lector de feeds twtxt que consume múltiples microblogs en texto plano desde el frontend. Arquitectura serverless.',
+    tags: ['JavaScript', 'HTML', 'CSS', 'Serverless'],
     demoUrl: 'http://dev1ls.sdf.org/timeline/',
     codeUrl: '',
     metrics: [{ label: 'Protocolo', value: 'twtxt' }, { label: 'Arquitectura', value: 'Serverless' }, { label: 'Formato', value: '.txt' }],
@@ -23,8 +23,8 @@ const projects: Project[] = [
   {
     image: 'https://raw.githubusercontent.com/dev1lsconf/financial-panel/main/assets/Headquarters.png',
     title: '0880 Headquarters',
-    description: 'Dashboard financiero en tiempo real con datos de mercado, indicadores técnicos, predicciones y gráficos interactivos para acciones, criptomonedas y forex — todo desde APIs gratuitas, sin keys ni suscripciones.',
-    tags: ['Python', 'FastAPI', 'Chart.js', 'Docker'],
+    description: 'Dashboard financiero en tiempo real con datos de mercado, indicadores técnicos (RSI, MACD, Bollinger Bands), predicciones y gráficos interactivos para 149+ activos (acciones, criptomonedas, forex). Backend con Python y FastAPI. Dockerizado.',
+    tags: ['Python', 'FastAPI', 'Chart.js', 'Docker', 'API'],
     demoUrl: '',
     codeUrl: 'https://github.com/dev1lsconf/financial-panel',
     metrics: [{ label: 'Activos', value: '149+' }, { label: 'APIs', value: '3' }, { label: 'Stack', value: 'Full' }],
@@ -32,8 +32,8 @@ const projects: Project[] = [
   {
     image: 'https://raw.githubusercontent.com/dev1lsconf/tienda-informatica/main/tienda.png',
     title: 'Mr. Robot Store',
-    description: 'E-commerce completo con panel de administración, carrito de compras en tiempo real y catálogo de productos. Estética cyberpunk inspirada en la serie Mr. Robot con animaciones CRT y glitch.',
-    tags: ['PHP', 'JavaScript', 'CSS3', 'JSON'],
+    description: 'E-commerce completo con panel de administración, carrito de compras en tiempo real, catálogo de productos y sistema de reservas. Estética cyberpunk inspirada en Mr. Robot con animaciones CRT y glitch. Backend en PHP con almacenamiento JSON.',
+    tags: ['PHP', 'JavaScript', 'CSS3', 'JSON', 'UX'],
     demoUrl: '',
     codeUrl: 'https://github.com/dev1lsconf/tienda-informatica',
     metrics: [{ label: 'CRUD', value: 'Completo' }, { label: 'Auth', value: 'Admin' }, { label: 'Tema', value: 'Cyberpunk' }],

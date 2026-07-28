@@ -2,17 +2,74 @@
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eric Batista — Full Stack Developer</title>
+
+    <!-- SEO Meta -->
+    <title>Eric Batista | Full Stack Developer & Especialista Next.js en Barcelona</title>
+    <meta name="description" content="Eric Batista, Full Stack Developer en Barcelona. Especialista en Next.js, React, TypeScript, JavaScript, DevOps y Linux. Transformo ideas en productos digitales rápidos, accesibles y visualmente impecables.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://ericbatista.vercel.app/">
+    <meta name="author" content="Eric Batista">
+    <meta name="keywords" content="desarrollador freelance Barcelona, programador full stack Barcelona, especialista Next.js, desarrollador React, desarrollador JavaScript, Linux engineer, DevOps, AI developer, Eric Batista">
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eric Batista | Full Stack Developer & Especialista Next.js en Barcelona">
+    <meta property="og:description" content="Desarrollador Full Stack en Barcelona. Next.js, React, TypeScript, JavaScript, DevOps, Linux. Transformo ideas en productos digitales.">
+    <meta property="og:url" content="https://ericbatista.vercel.app/">
+    <meta property="og:image" content="https://res.cloudinary.com/djeqn9kjl/image/upload/v1761399357/d7cbf642-b831-4b83-8fd7-40fd1c2d717a_ywa2cq.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="475">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Eric Batista — Portfolio">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Eric Batista | Full Stack Developer & Especialista Next.js en Barcelona">
+    <meta name="twitter:description" content="Desarrollador Full Stack en Barcelona. Next.js, React, TypeScript, JavaScript, DevOps, Linux.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/djeqn9kjl/image/upload/v1761399357/d7cbf642-b831-4b83-8fd7-40fd1c2d717a_ywa2cq.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+
     <script>
       if (localStorage.getItem('darkMode') === 'true' || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
+
+    <!-- Fonts: preconnect + preload + display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Preload cloudinary for hero image hint -->
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Eric Batista",
+      "url": "https://ericbatista.vercel.app",
+      "jobTitle": "Full Stack Developer",
+      "description": "Desarrollador Full Stack freelance en Barcelona. Especialista en Next.js, React, TypeScript, JavaScript, DevOps y Linux.",
+      "knowsAbout": ["Next.js", "React", "TypeScript", "JavaScript", "DevOps", "Linux", "Docker", "Node.js", "Python", "FastAPI"],
+      "sameAs": [
+        "https://github.com/dev1lsconf",
+        "https://www.linkedin.com/in/eric-batista-6978b0118"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Barcelona",
+        "addressCountry": "ES"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
