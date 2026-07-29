@@ -25,7 +25,7 @@ const projects: Project[] = [
     title: '0880 Headquarters',
     description: 'Dashboard financiero en tiempo real con datos de mercado, indicadores técnicos (RSI, MACD, Bollinger Bands), predicciones y gráficos interactivos para 149+ activos (acciones, criptomonedas, forex). Backend con Python y FastAPI. Dockerizado.',
     tags: ['Python', 'FastAPI', 'Chart.js', 'Docker', 'API'],
-    demoUrl: '',
+    demoUrl: 'https://headquater-c0598.containers.snapdeploy.app/',
     codeUrl: 'https://github.com/dev1lsconf/financial-panel',
     metrics: [{ label: 'Activos', value: '149+' }, { label: 'APIs', value: '3' }, { label: 'Stack', value: 'Full' }],
   },
