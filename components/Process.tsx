@@ -10,13 +10,13 @@ const steps: ProcessStep[] = [
 
 const Process: React.FC = () => {
   return (
-    <section id="process" className="py-32">
-      <div className="max-w-xs">
+    <section id="process" className="py-16 md:py-32">
+      <div className="max-w-md">
         <p className="font-mono text-xs text-indigo tracking-widest uppercase mb-4">— 03 · Proceso</p>
         <h2 className="font-display text-4xl md:text-5xl font-bold text-snow mb-4">Cómo trabajo</h2>
         <p className="text-mist text-base leading-relaxed">Un proceso iterativo y transparente. Sin cajas negras ni sorpresas. Metodología ágil con entregas frecuentes.</p>
       </div>
-      <div className="mt-16 relative">
+      <div className="mt-10 md:mt-16 relative">
         <div className="absolute left-[19px] top-0 bottom-0 w-px bg-steel hidden md:block" />
         <div className="space-y-12 md:space-y-0">
           {steps.map((step) => (

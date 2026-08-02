@@ -3,8 +3,8 @@ import CodeEditor from './CodeEditor';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-32">
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+    <section id="about" className="py-16 md:py-32">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
         <div className="lg:col-span-3" data-animate="fade-left">
           <p className="font-mono text-xs text-indigo tracking-widest uppercase mb-4">— Sobre mí</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-snow mb-8">

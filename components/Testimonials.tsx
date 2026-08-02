@@ -38,8 +38,8 @@ const Testimonials: React.FC = () => {
   }, [next]);
 
   return (
-    <section id="testimonials" className="py-32">
-      <div className="max-w-xs mb-16">
+    <section id="testimonials" className="py-16 md:py-32">
+      <div className="max-w-md mb-10 md:mb-16">
         <p className="font-mono text-xs text-indigo tracking-widest uppercase mb-4">— 05 · Testimonios</p>
         <h2 className="font-display text-4xl md:text-5xl font-bold text-snow mb-4">Lo que dicen</h2>
         <p className="text-mist text-base leading-relaxed">La mejor carta de presentación es quien ya trabajó conmigo.</p>

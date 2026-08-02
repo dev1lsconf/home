@@ -61,7 +61,7 @@ const services: Service[] = [
 const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, index }) => (
   <div
     data-animate-item
-    className="group relative bg-carbon border border-steel rounded-2xl p-8 md:p-10 transition-all duration-500 hover:-translate-y-1 hover:border-indigo/30 hover:shadow-glow min-h-[220px] flex flex-col"
+    className="group relative bg-carbon border border-steel rounded-2xl p-8 md:p-10 transition-all duration-500 hover:-translate-y-1 hover:border-indigo/30 hover:shadow-glow min-h-[200px] md:min-h-[220px] flex flex-col"
   >
     <div className="w-12 h-12 rounded-xl bg-indigo/10 text-indigo flex items-center justify-center mb-6 group-hover:bg-indigo/20 transition-colors duration-300 shrink-0">
       {service.icon}
@@ -73,13 +73,13 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-32">
+    <section id="services" className="py-16 md:py-32">
       <div className="max-w-2xl">
         <p className="font-mono text-xs text-indigo tracking-widest uppercase mb-4">— 02 · Servicios</p>
         <h2 className="font-display text-4xl md:text-5xl font-bold text-snow mb-4">Lo que hago</h2>
         <p className="text-mist text-base md:text-lg leading-relaxed">Construyo productos digitales que resuelven problemas reales. Sin ruido, sin sobreingeniería.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-16" data-animate="service-stagger">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16" data-animate="service-stagger">
         {services.map((service, i) => (
           <ServiceCard key={service.title} service={service} index={i} />
         ))}

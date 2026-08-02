@@ -18,8 +18,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-32">
-      <div className="text-center max-w-xl mx-auto mb-16">
+    <section id="contact" className="py-16 md:py-32">
+      <div className="text-center max-w-xl mx-auto mb-10 md:mb-16">
         <p className="font-mono text-xs text-indigo tracking-widest uppercase mb-4">— 06 · Contacto</p>
         <h2 className="font-display text-4xl md:text-5xl font-bold text-snow mb-4">¿Tienes un proyecto en mente?</h2>
         <p className="text-mist text-base leading-relaxed">Hablemos. No importa si es una idea temprana o un proyecto definido — siempre estoy abierto a una buena conversación.</p>

@@ -43,8 +43,8 @@ const projects: Project[] = [
 const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
   return (
     <div className="project-card" data-index={index}>
-      <div className="w-full max-w-5xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-carbon border border-steel rounded-3xl p-6 md:p-10 shadow-2xl">
+      <div className="w-full max-w-5xl mx-auto px-2 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center bg-carbon border border-steel rounded-3xl p-5 md:p-10 shadow-2xl">
           <div className="overflow-hidden rounded-xl">
             <img
               src={project.image}
@@ -116,12 +116,12 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
 
 const ScrollyProjects: React.FC = () => {
   return (
-    <section id="scrolly-projects" className="relative py-32 bg-void">
-      <div className="text-center mb-16 px-6">
+    <section id="scrolly-projects" className="relative py-16 md:py-32 bg-void">
+      <div className="text-center mb-10 md:mb-16 px-6">
         <p className="font-mono text-xs text-indigo tracking-widest uppercase mb-2">— 04 · Proyectos</p>
         <h2 className="font-display text-4xl md:text-5xl font-bold text-snow">Trabajo seleccionado</h2>
       </div>
-      <div className="cards-stack space-y-24">
+      <div className="cards-stack space-y-16 md:space-y-24">
         {projects.map((project, i) => (
           <ProjectCard key={project.title} project={project} index={i} />
         ))}

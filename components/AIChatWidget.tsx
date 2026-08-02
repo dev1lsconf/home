@@ -51,7 +51,7 @@ const AIChatWidget: React.FC = () => {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 bg-indigo text-snow rounded-full p-4 shadow-lg hover:bg-indigo-deep hover:scale-110 transition-all duration-300 z-50 shadow-glow"
+        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-indigo text-snow rounded-full p-4 shadow-lg hover:bg-indigo-deep hover:scale-110 transition-all duration-300 z-50 shadow-glow"
         aria-label="Toggle AI Chat"
       >
         {isOpen ? (
@@ -62,7 +62,7 @@ const AIChatWidget: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-[calc(100vw-3rem)] max-w-sm h-[65vh] bg-carbon border border-steel rounded-2xl shadow-2xl shadow-indigo/5 flex flex-col z-50 animate-fade-in overflow-hidden">
+        <div className="fixed bottom-20 md:bottom-24 right-3 md:right-6 w-[calc(100vw-1.5rem)] md:w-[calc(100vw-3rem)] max-w-sm h-[70vh] md:h-[65vh] bg-carbon border border-steel rounded-2xl shadow-2xl shadow-indigo/5 flex flex-col z-50 animate-fade-in overflow-hidden">
           <header className="bg-gradient-to-r from-indigo to-indigo-deep p-4 text-snow font-bold flex justify-between items-center">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-snow/20 rounded-full flex items-center justify-center">
