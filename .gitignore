@@ -1,30 +1,25 @@
-# Logs
-logs
-*.log
+# deps
+node_modules/
+# next
+.next/
+out/
+# production
+build/
+# misc
+.DS_Store
+*.pem
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-build
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# local env
+.env*
+!.env.example
+# vercel
 .vercel
-.env
-.env.local
-.env.production
-.env.development
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+# tests
+/test-results/
+# old version backup is tracked (v1/)

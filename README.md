@@ -1,7 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://res.cloudinary.com/djeqn9kjl/image/upload/v1761399357/d7cbf642-b831-4b83-8fd7-40fd1c2d717a_ywa2cq.png" />
-</div>
+# Eric Batista — Cinematic 3D Portfolio
 
-## Web personal
+An interactive, scroll-driven portfolio experience. The camera travels from a dark datacenter (server racks, flickering LEDs, spinning fans), through data cables carrying packets, into a global network graph, and lands on a laptop whose screen lights up with the portfolio content. Built to tell the story: **idea → code → infrastructure → user**.
 
-https://ericbatista.vercel.app
+## Stack
+
+- **Next.js 16** (App Router, Turbopack)
+- **React 19** + TypeScript strict
+- **Three.js** + @react-three/fiber + @react-three/drei + @react-three/postprocessing
+- **GSAP** ScrollTrigger (global scroll progress drives the camera timeline)
+- **Tailwind CSS 4** + CSS custom tokens
+- **Zustand** (tiny external store for scroll/section state)
+
+## Design principles
+
+- **One fixed 3D canvas** behind everything; content lives in semantic HTML overlays (SSR'd, accessible, SEO-friendly even without WebGL).
+- **Cinematic camera rig**: 11-keyframe timeline interpolated in `useFrame` with exponential damping — feels like a movie, not a page with scroll animations.
+- **Quality presets** (`high` / `medium` / `low` / `fallback`) auto-detected from device; an FPS watchdog auto-degrades. Without WebGL, a 2D cinematic fallback (CSS/SVG) renders instead.
+- **Reduced motion** supported: overlays stack statically without camera travel.
+
+## Run
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+```
+
+Quality override for testing: `?q=low` | `?q=medium` | `?q=high` | `?q=fallback`
+
+## Tests
+
+```bash
+npm test         # vitest + jsdom, 21 tests
+npm run build    # production build
+```
+
+## History
+
+`v1/` contains the previous version of this portfolio (Astro/Vite stack) kept as a backup.
+
+---
+
+© 2026 Eric Batista — Developer · Web · AI · Infrastructure

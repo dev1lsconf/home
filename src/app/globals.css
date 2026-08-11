@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #05060a;
+  --bg-2: #0a0d14;
+  --panel: rgba(13, 17, 25, 0.72);
+  --line: rgba(120, 150, 180, 0.14);
+  --ink: #e8edf4;
+  --dim: #8b98a5;
+  --cyan: #52e6ff;
+  --cyan-soft: rgba(82, 230, 255, 0.28);
+  --violet: #8b6bff;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Rim-light text effect: glyphs read as if backlit by the scene.
+   Dark halo separates from the backdrop; a colored rim (bottom-biased,
+   like light bouncing off the neon grid) makes every line pop. */
+.overlay-section h1,
+.overlay-section h2,
+.overlay-section h3,
+.overlay-section p,
+.overlay-section li,
+.overlay-section span,
+.overlay-section a,
+.overlay-section button {
+  text-shadow:
+    0 1px 3px rgba(2, 4, 8, 0.95),
+    0 0 14px rgba(2, 4, 8, 0.85),
+    0 3px 20px rgba(82, 230, 255, 0.28),
+    0 -2px 18px rgba(82, 230, 255, 0.18),
+    0 0 44px rgba(82, 230, 255, 0.14),
+    0 6px 48px rgba(2, 4, 8, 0.7);
+}
+/* stronger rim on display headings — the light really leaks from behind */
+.overlay-section h1,
+.overlay-section .text-display,
+.overlay-section .text-title {
+  text-shadow:
+    0 1px 3px rgba(2, 4, 8, 0.95),
+    0 0 18px rgba(2, 4, 8, 0.85),
+    0 4px 34px rgba(82, 230, 255, 0.55),
+    0 -2px 26px rgba(82, 230, 255, 0.32),
+    0 0 60px rgba(82, 230, 255, 0.22),
+    0 8px 64px rgba(2, 4, 8, 0.7);
+}
+.overlay-section .cyan {
+  text-shadow:
+    0 1px 3px rgba(2, 4, 8, 0.95),
+    0 0 20px rgba(2, 4, 8, 0.8),
+    0 0 18px rgba(82, 230, 255, 0.45),
+    0 0 42px rgba(82, 230, 255, 0.2) !important;
+}
+.overlay-section .violet {
+  text-shadow:
+    0 1px 3px rgba(2, 4, 8, 0.95),
+    0 0 20px rgba(2, 4, 8, 0.8),
+    0 0 18px rgba(139, 107, 255, 0.45),
+    0 0 42px rgba(139, 107, 255, 0.2) !important;
+}
+
+::selection { background: var(--cyan-soft); }
+
+/* ---------- scroll journey spacer ---------- */
+#journey { height: 1000vh; position: relative; }
+@media (prefers-reduced-motion: reduce) { #journey { height: auto; } }
+
+/* ---------- fixed 3D / 2D scene layer ---------- */
+.scene-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- DOM overlay sections ---------- */
+.overlay-section {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  /* safe-area + fluid padding on both axes */
+  padding: clamp(0.75rem, 3vmin, 3rem);
+  padding-top: calc(clamp(0.75rem, 3vmin, 3rem) + env(safe-area-inset-top));
+  padding-bottom: calc(clamp(0.75rem, 3vmin, 3rem) + env(safe-area-inset-bottom));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.55s ease, visibility 0.55s;
+  pointer-events: none;
+  /* internal scroll is disabled: it fights the global scroll rig */
+  overflow: hidden;
+}
+.overlay-section.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* reduced motion: sections stack in normal document flow */
+.reduced-motion .overlay-section {
+  position: relative;
+  inset: auto;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  min-height: auto;
+}
+.reduced-motion #journey { height: auto; }
+
+/* landscape phones & short windows: compact type, start alignment */
+@media (max-height: 480px) {
+  .overlay-section { place-items: start center; padding-top: 4.6rem; }
+  .text-display { font-size: clamp(1.9rem, 9vmin, 3rem); }
+  .text-title   { font-size: clamp(1.15rem, 5.5vmin, 1.7rem); }
+  .text-lead    { font-size: clamp(0.95rem, 4vmin, 1.15rem); }
+}
+@media (max-height: 340px) {
+  .text-display { font-size: clamp(1.5rem, 12vmin, 2.2rem); }
+  .text-title   { font-size: 1.05rem; }
+}
+.reduced-motion #journey { height: auto; }
+
+/* ---------- typography helpers (fluid in BOTH axes) ---------- */
+.font-hud {
+  font-family: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  letter-spacing: 0.14em;
+}
+/* vmin keeps display type inside short/landscape viewports */
+.text-display { font-size: clamp(2.8rem, 11vmin, 7rem); line-height: 0.92; font-weight: 900; letter-spacing: -0.02em; }
+.text-title   { font-size: clamp(1.6rem, 5vmin, 3rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.01em; }
+.text-hud     { font-size: clamp(0.68rem, 1.5vmin, 0.85rem); }
+.text-body    { font-size: clamp(0.95rem, 2.4vmin, 1.22rem); }
+.text-lead    { font-size: clamp(1.05rem, 3vmin, 1.5rem); line-height: 1.4; }
+
+.dim { color: var(--dim); }
+.cyan { color: var(--cyan); }
+.violet { color: var(--violet); }
+
+/* ---------- shared UI atoms ---------- */
+.chip {
+  font-family: var(--font-plex-mono), ui-monospace, Menlo, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--dim);
+  background: rgba(10, 14, 20, 0.55);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s, color 0.25s, transform 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.chip:hover, .chip:focus-visible {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.btn {
+  font-family: var(--font-plex-mono), ui-monospace, Menlo, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--cyan-soft);
+  color: var(--cyan);
+  background: transparent;
+  border-radius: 2px;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.25s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.btn:hover, .btn:focus-visible {
+  background: var(--cyan);
+  color: #04121a;
+  box-shadow: 0 0 24px var(--cyan-soft);
+  transform: translateY(-2px);
+  outline: none;
+}
+.btn-ghost { border-color: var(--line); color: var(--dim); }
+.btn-ghost:hover, .btn-ghost:focus-visible {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.hud-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  padding: clamp(1rem, 2.4vw, 1.6rem);
+  position: relative;
+}
+.hud-panel::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 34px; height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+}
+
+.proj-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.15rem 1.25rem;
+  backdrop-filter: blur(8px);
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s, box-shadow 0.35s;
+}
+.proj-card:hover, .proj-card:focus-within {
+  transform: translateY(-5px);
+  border-color: var(--cyan-soft);
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--cyan-soft);
+}
+
+/* ---------- scroll hint animation ---------- */
+@keyframes hint-drop {
+  0% { transform: translateY(0); opacity: 0; }
+  25% { opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+.hint-dot { animation: hint-drop 1.8s ease-in-out infinite; }
+
+/* ---------- scene dim: darkens 3D behind active text panels ---------- */
+.scene-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: radial-gradient(ellipse 90% 75% at 50% 50%, transparent 30%, rgba(4,6,10,0.55) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.scene-dim.on { opacity: 1; }
+
+/* ---------- mobile rail (bottom thin bar) ---------- */
+.mobile-rail {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 30;
+  height: 3px;
+  background: var(--line);
+}
+.mobile-rail > div {
+  height: 100%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan-soft);
+  transition: width 0.2s linear;
+}
+.mobile-rail .mr-label {
+  position: absolute;
+  bottom: 10px; left: 12px;
+  font-family: var(--font-plex-mono), ui-monospace, Menlo, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--dim);
+}
+@media (min-width: 640px) { .mobile-rail { display: none; } }
+
+/* ---------- intro scroll hint ---------- */
+@keyframes hint-caret {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(7px); opacity: 0.35; }
+}
+.scroll-hint {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+.scroll-hint .hint-text {
+  font-family: var(--font-plex-mono), ui-monospace, Menlo, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  color: var(--ink);
+}
+.scroll-hint .hint-caret {
+  width: 1px; height: 26px;
+  background: var(--ink);
+  box-shadow: 0 0 10px rgba(232,237,244,0.8), 0 0 22px rgba(82,230,255,0.4);
+  animation: hint-caret 1.7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint .hint-caret { animation: none; }
+}
+
+/* ---------- LED / pulse ---------- */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--cyan); }
+  50% { opacity: 0.35; box-shadow: 0 0 2px var(--cyan); }
+}
+.pulse-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--cyan);
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+/* ---------- final card (closing panel with rim-lit border) ---------- */
+.final-card {
+  position: relative;
+  background: rgba(8, 12, 18, 0.55);
+  border: 1px solid rgba(82, 230, 255, 0.35);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 5vmin, 4rem) clamp(1.5rem, 7vmin, 6rem);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 0 1px rgba(82, 230, 255, 0.08),
+    0 0 42px rgba(82, 230, 255, 0.14),
+    inset 0 0 80px rgba(82, 230, 255, 0.05),
+    0 24px 80px rgba(0, 0, 0, 0.6);
+}
+.final-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(82,230,255,0.55), transparent 30%, rgba(139,107,255,0.45) 60%, rgba(82,230,255,0.4));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* ---------- keyboard focus ---------- */
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- skip link ---------- */
+.skip-link {
+  position: fixed;
+  top: -60px; left: 16px;
+  z-index: 100;
+  background: var(--cyan);
+  color: #04121a;
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 12px; }
