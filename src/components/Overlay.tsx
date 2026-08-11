@@ -133,7 +133,7 @@ export default function Overlay() {
           <div className="w-full max-w-full text-center px-2">
             <p className="font-hud text-hud cyan mb-4">02 // EN TRÁNSITO</p>
             <h2 className="text-title" style={{ fontSize: "clamp(1.05rem, 5vmin, 3rem)", lineHeight: 1.08 }}>
-              Cada byte viaja a través de <span className="cyan">infraestructura real</span>.
+              Transformo ideas complejas en <span className="cyan">productos web que funcionan</span>.
             </h2>
             <ul className="mt-6 flex flex-wrap justify-center gap-2 list-none p-0">
               {PROTOCOLS.map((p) => (
@@ -148,14 +148,15 @@ export default function Overlay() {
           <div className="max-w-2xl text-center">
             <p className="font-hud text-hud violet mb-4">03 // LA RED</p>
             <h2 className="text-title mb-6" style={{ fontSize: "clamp(1.8rem, 6.2vmin, 3.6rem)" }}>
-              La <span className="violet">red</span> como un solo organismo.
+              Experiencias que <span className="violet">escalan</span>, del prototipo a producción.
             </h2>
             <p className="text-lead dim mb-4" style={{ fontSize: "clamp(1.25rem, 4vmin, 2rem)", lineHeight: 1.3 }}>
-              Una malla de <span className="cyan">servidores</span>,{" "}
-              <span className="violet">bases de datos</span> y APIs
+              Desde una API estable hasta una UI que llega rápido —
+              me encargo de la <span className="cyan">arquitectura</span>, la{" "}
+              <span className="violet">optimización</span> y la entrega.
             </p>
-            <p className="text-lead dim" style={{ fontSize: "clamp(1.25rem, 4vmin, 2rem)", lineHeight: 1.3 }}>
-              moviéndose como un solo sistema.
+            <p className="font-hud text-hud cyan mt-6" style={{ letterSpacing: "0.18em" }}>
+              LLEVEMOS TU PROYECTO AL SIGUIENTE NIVEL
             </p>
           </div>
         </section>
