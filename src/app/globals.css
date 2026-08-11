@@ -311,8 +311,13 @@ body::after {
   .scroll-hint .hint-caret { animation: none; }
 }
 
-/* ---------- skill grid span: SECURITY full-width on mobile ---------- */
-.skill-span { grid-column: 1 / -1; }
+/* ---------- skill grid span: SECURITY full-width on mobile only ---------- */
+@media (max-width: 639px) {
+  .skills-grid > .hud-panel[data-cat="SECURITY"] { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) {
+  /* on desktop, SECURITY takes its normal cell — the grid flows 3 per row */
+}
 
 /* ---------- text-rim: stronger backlit glow so copy floats over the scene ---------- */
 .overlay-section h1,

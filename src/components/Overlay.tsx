@@ -169,11 +169,12 @@ export default function Overlay() {
         <section ref={setRef("skills")} className="overlay-section" aria-label="Technologies">
           <div className="w-full max-w-4xl">
             <p className="font-hud text-hud cyan mb-5">04 // STACK</p>
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
+            <div className="skills-grid grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
               {content.skills.map((s) => (
                 <div
                   key={s.cat}
-                  className={s.cat === "SECURITY" ? "hud-panel skill-span" : "hud-panel"}
+                  className="hud-panel"
+                  data-cat={s.cat}
                 >
                   <h3 className="font-hud text-hud violet">{s.cat}</h3>
                   <ul className="mt-2 flex flex-wrap gap-1.5 list-none p-0">
