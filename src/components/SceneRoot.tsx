@@ -76,7 +76,7 @@ function SceneWorld({ quality }: { quality: Quality }) {
   const preset = PRESETS[quality];
   return (
     <>
-      <fog attach="fog" args={["#05060a", 10, 52]} />
+      <fog attach="fog" args={["#05060a", 8, 46]} />
       <DemandDriver />
       <CameraRig />
       <FPSWatchdog />
@@ -87,8 +87,8 @@ function SceneWorld({ quality }: { quality: Quality }) {
       <Laptop />
       {preset.bloom && <Effects />}
       {/* scene-level base light so nothing ever renders pitch black */}
-      <ambientLight intensity={0.32} color="#a8c4e0" />
-      <directionalLight position={[4, 8, 6]} intensity={0.5} color="#cfe5ff" />
+      <ambientLight intensity={0.38} color="#a8c4e0" />
+      <directionalLight position={[4, 8, 6]} intensity={0.6} color="#cfe5ff" />
     </>
   );
 }
