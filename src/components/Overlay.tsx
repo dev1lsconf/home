@@ -131,7 +131,7 @@ export default function Overlay() {
         {/* 02 — CABLES */}
         <section ref={setRef("cables")} className="overlay-section" aria-label="Data in transit">
           <div className="w-full max-w-full text-center px-2">
-            <p className="font-hud text-hud cyan mb-4">02 // IN TRANSIT</p>
+            <p className="font-hud text-hud cyan mb-4">02 // EN TRÁNSITO</p>
             <h2 className="text-title" style={{ fontSize: "clamp(1.5rem, 5.6vmin, 3.2rem)", whiteSpace: "nowrap" }}>
               Cada byte viaja a través de <span className="cyan">infraestructura real</span>.
             </h2>
@@ -146,7 +146,7 @@ export default function Overlay() {
         {/* 03 — NETWORK */}
         <section ref={setRef("network")} className="overlay-section" aria-label="Global network">
           <div className="max-w-2xl text-center">
-            <p className="font-hud text-hud violet mb-4">03 // THE NETWORK</p>
+            <p className="font-hud text-hud violet mb-4">03 // LA RED</p>
             <h2 className="text-title mb-6" style={{ fontSize: "clamp(1.8rem, 6.2vmin, 3.6rem)" }}>
               La <span className="violet">red</span> como un solo organismo.
             </h2>
@@ -182,7 +182,7 @@ export default function Overlay() {
         {/* 05 — SERVICES */}
         <section ref={setRef("services")} className="overlay-section" aria-label="What I build">
           <div className="w-full max-w-3xl">
-            <p className="font-hud text-hud cyan mb-4">05 // WHAT I BUILD</p>
+            <p className="font-hud text-hud cyan mb-4">05 // LO QUE CONSTRUYO</p>
             <ol className="flex flex-col gap-3 list-none p-0">
               {content.services.map((s, i) => (
                 <li key={s.id} className="hud-panel flex items-baseline gap-4">
@@ -200,7 +200,7 @@ export default function Overlay() {
         {/* 06 — EXPERIENCE / ABOUT */}
         <section ref={setRef("experience")} className="overlay-section" aria-label="About me">
           <div className="hud-panel max-w-xl">
-            <p className="font-hud text-hud cyan mb-3">ABOUT ME</p>
+            <p className="font-hud text-hud cyan mb-3">SOBRE MÍ</p>
             <h2 className="text-title font-extralight">{content.name}</h2>
             <p className="font-hud text-hud dim mt-1">
               Full Stack Developer freelance · Based in {content.location}
@@ -215,7 +215,7 @@ export default function Overlay() {
         {/* 07 — PROJECTS */}
         <section ref={setRef("projects")} className="overlay-section" aria-label="Projects">
           <div className="w-full max-w-4xl">
-            <p className="font-hud text-hud cyan mb-5">07 // PROJECTS</p>
+            <p className="font-hud text-hud cyan mb-5">07 // PROYECTOS</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
               {content.projects.map((p) => (
                 <article key={p.id} className="proj-card">
@@ -240,7 +240,7 @@ export default function Overlay() {
         {/* 08 — METHOD */}
         <section ref={setRef("method")} className="overlay-section" aria-label="How I work">
           <div className="w-full max-w-2xl">
-            <p className="font-hud text-hud violet mb-5">08 // HOW I WORK</p>
+            <p className="font-hud text-hud violet mb-5">08 // CÓMO TRABAJO</p>
             <ol className="flex flex-col gap-3 list-none p-0">
               {content.method.map((m) => (
                 <li key={m.id} className="hud-panel flex items-baseline gap-4">
@@ -258,7 +258,7 @@ export default function Overlay() {
         {/* 09 — CONTACT */}
         <section ref={setRef("contact")} className="overlay-section" aria-label="Contact" id="contact-anchor">
           <div className="w-full max-w-2xl">
-            <p className="font-hud text-hud cyan mb-3">09 // LET&apos;S BUILD SOMETHING</p>
+            <p className="font-hud text-hud cyan mb-3">09 // CONSTRUYAMOS ALGO</p>
             <h2 className="text-title" style={{ fontSize: "clamp(1.2rem, 3.6vmin, 2.2rem)", whiteSpace: "nowrap" }}>
               ¿Tienes un proyecto, una idea o un reto técnico?
             </h2>
