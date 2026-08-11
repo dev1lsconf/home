@@ -282,8 +282,8 @@ export default function ServerRoom({ racks }: { racks: number }) {
         ))}
       </group>
 
-      {/* corridor lighting — tighter, moodier pools */}
-      <ambientLight intensity={0.16} color="#7f98b4" />
+      {/* corridor lighting */}
+      <ambientLight intensity={0.24} color="#8fa8c4" />
       <spotLight position={[0, 3.1, 4]} angle={0.5} penumbra={0.9} intensity={4.5} color="#cfeaff" target-position={[0, 0, -2]} />
       <spotLight position={[0, 3.1, -9]} angle={0.55} penumbra={0.9} intensity={3.5} color="#bfe9ff" target-position={[0, 0, -12]} />
       <pointLight position={[-1.4, 2.4, -5]} intensity={1.6} color="#9470ff" distance={8} decay={2} />
