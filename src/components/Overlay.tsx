@@ -171,7 +171,11 @@ export default function Overlay() {
             <p className="font-hud text-hud cyan mb-5">04 // STACK</p>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
               {content.skills.map((s) => (
-                <div key={s.cat} className="hud-panel">
+                <div
+                  key={s.cat}
+                  className="hud-panel"
+                  style={s.cat === "SECURITY" ? { gridColumn: "1 / -1" } : undefined}
+                >
                   <h3 className="font-hud text-hud violet">{s.cat}</h3>
                   <ul className="mt-2 flex flex-wrap gap-1.5 list-none p-0">
                     {s.items.map((item) => (
