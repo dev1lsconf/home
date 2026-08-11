@@ -66,7 +66,7 @@ export function qualityFromTier(t: number): Quality {
 export const PRESETS = {
   high:    { dpr: [1, 2] as [number, number], particles: 3000, bloom: true,  frameloop: "always" as const, racks: 16, nodeDetail: true },
   medium:  { dpr: [1, 1.5] as [number, number], particles: 1000, bloom: true,  frameloop: "always" as const, racks: 12, nodeDetail: true },
-  low:     { dpr: [1, 1] as [number, number], particles: 300,  bloom: false, frameloop: "demand" as const, racks: 8,  nodeDetail: false },
+  low:     { dpr: [1, 1] as [number, number], particles: 300,  bloom: false, frameloop: "always" as const, racks: 8,  nodeDetail: false },
   fallback:{ dpr: [1, 1] as [number, number], particles: 0,    bloom: false, frameloop: "demand" as const, racks: 0,  nodeDetail: false },
 } as const;
 

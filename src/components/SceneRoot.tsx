@@ -30,7 +30,7 @@ class GLBoundary extends Component<
   }
 }
 
-/* ---------- demand-mode driver: scroll must invalidate frames on mobile ---------- */
+/* ---------- demand-mode safety net (kept for future 'demand' fallbacks) ---------- */
 function DemandDriver() {
   const invalidate = useThree((s) => s.invalidate);
   useEffect(
