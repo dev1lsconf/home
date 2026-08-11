@@ -94,7 +94,7 @@ export const content = {
     github: "https://github.com/dev1lsconf",
     linkedin: "https://www.linkedin.com/in/eric-batista-6978b0118",
   },
-  footer: "Building digital experiences from code to infrastructure.",
+  footer: "Construyendo experiencias digitales, del código a la infraestructura.",
   year: 2026,
 } as const;
 
