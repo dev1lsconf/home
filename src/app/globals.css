@@ -1,15 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #05060a;
-  --bg-2: #0a0d14;
-  --panel: rgba(13, 17, 25, 0.72);
-  --line: rgba(120, 150, 180, 0.14);
-  --ink: #e8edf4;
-  --dim: #8b98a5;
-  --cyan: #52e6ff;
-  --cyan-soft: rgba(82, 230, 255, 0.28);
-  --violet: #8b6bff;
+  --bg: #04050a;
+  --bg-2: #090c12;
+  --panel: rgba(11, 15, 23, 0.72);
+  --line: rgba(120, 150, 180, 0.16);
+  --ink: #eef3f8;
+  --dim: #93a3b3;
+  --cyan: #4fd8ff;
+  --cyan-soft: rgba(79, 216, 255, 0.3);
+  --violet: #9470ff;
+  --violet-soft: rgba(148, 112, 255, 0.24);
+  /* pro easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* film grain opacity (0 = off) */
+  --grain: 0.05;
 }
 
 html {
@@ -25,8 +31,21 @@ body {
   background: var(--bg);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
+
+/* film grain — pure CSS, sits above everything at very low opacity */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: var(--grain);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce) { body::after { display: none; } }
 
 /* Rim-light text effect: glyphs read as if backlit by the scene.
    Dark halo separates from the backdrop; a colored rim (bottom-biased,
@@ -110,6 +129,22 @@ body {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+/* content cards — shared surface language */
+.surface {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s var(--ease-out), border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+}
+.surface:hover, .surface:focus-within {
+  border-color: var(--cyan-soft);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--cyan-soft);
+  transform: translateY(-3px);
 }
 
 /* reduced motion: sections stack in normal document flow */
@@ -221,6 +256,20 @@ body {
   width: 34px; height: 2px;
   background: var(--cyan);
   box-shadow: 0 0 12px var(--cyan);
+}
+/* polish: panels get the shared surface language */
+.hud-panel, .proj-card {
+  border-radius: 10px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: transform 0.35s var(--ease-out), border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+}
+.hud-panel:hover, .proj-card:hover, .hud-panel:focus-within, .proj-card:focus-within {
+  border-color: var(--cyan-soft);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--cyan-soft);
+  transform: translateY(-3px);
 }
 
 .proj-card {

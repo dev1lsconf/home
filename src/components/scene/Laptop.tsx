@@ -175,10 +175,11 @@ export default function Laptop() {
         </group>
       </group>
 
-      {/* lighting to make the machine pop */}
-      <pointLight ref={screenGlow} position={[0, 0.4, 1.2]} color="#bfe9ff" intensity={0} distance={5.5} decay={2} />
-      {/* key light from above-front so the silver body catches it */}
-      <spotLight ref={keyLightRef} position={[0, 4.2, 2.5]} angle={0.5} penumbra={0.8} intensity={3} color="#ffffff" target-position={[0, 1.3, 0]} distance={10} decay={2} />
+      {/* lighting: rim accents + top key so silver catches light */}
+      <pointLight ref={screenGlow} position={[0, 0.4, 1.2]} color="#cfeaff" intensity={0} distance={5.5} decay={2} />
+      <pointLight position={[-2.5, 1.4, -1]} color="#9470ff" intensity={2.4} distance={7} decay={2} />
+      <pointLight position={[2.5, 0.9, -1]} color="#4fd8ff" intensity={2.2} distance={7} decay={2} />
+      <spotLight ref={keyLightRef} position={[0, 4.2, 2.5]} angle={0.5} penumbra={0.8} intensity={3.2} color="#ffffff" target-position={[0, 1.3, 0]} distance={10} decay={2} />
     </group>
   );
 }

@@ -76,7 +76,7 @@ function SceneWorld({ quality }: { quality: Quality }) {
   const preset = PRESETS[quality];
   return (
     <>
-      <fog attach="fog" args={["#05060a", 8, 46]} />
+      <fog attach="fog" args={["#04050a", 6, 42]} />
       <DemandDriver />
       <CameraRig />
       <FPSWatchdog />
