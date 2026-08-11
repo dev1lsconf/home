@@ -36,9 +36,8 @@ npm run build    # production build
 
 ## History
 
-`v1/` contains the previous version of this portfolio (Astro/Vite stack) kept as a backup.
+The previous version of this portfolio (Astro/Vite stack) lives outside this repo at `~/Documents/v1/`. It is intentionally not part of this project or deployment.
 
 ---
 
 © 2026 Eric Batista — Developer · Web · AI · Infrastructure
-<!-- deployment: 1786434579 -->
