@@ -135,6 +135,10 @@ export default function Overlay() {
             <h2 className="text-title" style={{ fontSize: "clamp(1.05rem, 5vmin, 3rem)", lineHeight: 1.08 }}>
               Transformo ideas complejas en <span className="cyan">productos web que funcionan</span>.
             </h2>
+            <p className="text-lead dim mt-4 max-w-xl mx-auto" style={{ fontSize: "clamp(0.95rem, 3.6vmin, 1.5rem)", lineHeight: 1.45 }}>
+              No son solo webs: son herramientas que resuelven problemas reales,
+              cargan rápido y escalan con tu negocio.
+            </p>
             <ul className="mt-6 flex flex-wrap justify-center gap-2 list-none p-0">
               {PROTOCOLS.map((p) => (
                 <li key={p} className="chip">{p}</li>
@@ -200,7 +204,7 @@ export default function Overlay() {
 
         {/* 06 — EXPERIENCE / ABOUT */}
         <section ref={setRef("experience")} className="overlay-section" aria-label="About me">
-          <div className="hud-panel max-w-xl">
+          <div className="hud-panel max-w-xl text-center mx-auto">
             <p className="font-hud text-hud cyan mb-3">SOBRE MÍ</p>
             <h2 className="text-title font-extralight">{content.name}</h2>
             <p className="font-hud text-hud dim mt-1">
