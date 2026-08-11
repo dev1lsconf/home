@@ -5,12 +5,12 @@ import { scrollToSection } from "@/lib/scroll-timeline";
 import type { SectionId } from "@/lib/store";
 
 const LINKS: { id: SectionId; label: string }[] = [
-  { id: "intro", label: "START" },
-  { id: "skills", label: "SKILLS" },
-  { id: "services", label: "SERVICES" },
-  { id: "projects", label: "PROJECTS" },
-  { id: "method", label: "METHOD" },
-  { id: "contact", label: "CONTACT" },
+  { id: "intro", label: "INICIO" },
+  { id: "skills", label: "STACK" },
+  { id: "services", label: "SERVICIOS" },
+  { id: "projects", label: "PROYECTOS" },
+  { id: "method", label: "MÉTODO" },
+  { id: "contact", label: "CONTACTO" },
 ];
 
 /** Discreet top-right menu: expands into a minimal overlay. */
@@ -41,12 +41,12 @@ export default function Menu() {
         type="button"
         aria-expanded={open}
         aria-controls="site-menu"
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label={open ? "Cerrar menú" : "Abrir menú"}
         onClick={() => setOpen((o) => !o)}
         className="fixed top-4 right-4 md:top-6 md:right-6 z-40 chip"
         style={{ borderColor: open ? "var(--cyan)" : undefined, color: open ? "var(--cyan)" : undefined }}
       >
-        <span aria-hidden="true">{open ? "✕" : "≡"}</span> MENU
+        <span aria-hidden="true">{open ? "✕" : "≡"}</span> MENÚ
       </button>
 
       <div
@@ -54,7 +54,7 @@ export default function Menu() {
         ref={panelRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Site menu"
+        aria-label="Menú de navegación"
         className="fixed inset-0 z-30 grid place-items-center transition-all duration-300"
         style={{
           background: "rgba(5, 6, 10, 0.92)",
@@ -64,7 +64,7 @@ export default function Menu() {
           pointerEvents: open ? "auto" : "none",
         }}
       >
-        <nav aria-label="Sections" className="text-center">
+        <nav aria-label="Secciones" className="text-center">
           <ul className="flex flex-col gap-4">
             {LINKS.map((l, i) => (
               <li key={l.id}>
