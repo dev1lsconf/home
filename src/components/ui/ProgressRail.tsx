@@ -33,7 +33,7 @@ export default function ProgressRail() {
 
   return (
     <nav
-      aria-label="Journey progress"
+      aria-label="Progreso del recorrido"
       className="fixed left-4 md:left-6 top-1/2 -translate-y-1/2 z-30 hidden sm:flex flex-col gap-1"
     >
       {/* progress track */}
@@ -61,8 +61,8 @@ export default function ProgressRail() {
               <button
                 type="button"
                 onClick={() => scrollToSection(s.id)}
-                aria-current={active ? "true" : undefined}
-                aria-label={`Go to ${s.label}`}
+                aria-current={active ? "location" : undefined}
+                aria-label={`Ir a ${s.label}`}
                 className="group flex items-center gap-2.5 text-left"
               >
                 <span
