@@ -41,3 +41,4 @@ npm run build    # production build
 ---
 
 © 2026 Eric Batista — Developer · Web · AI · Infrastructure
+<!-- deployment: 1786434579 -->
