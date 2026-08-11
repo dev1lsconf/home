@@ -47,52 +47,6 @@ body::after {
 }
 @media (prefers-reduced-motion: reduce) { body::after { display: none; } }
 
-/* Rim-light text effect: glyphs read as if backlit by the scene.
-   Dark halo separates from the backdrop; a colored rim (bottom-biased,
-   like light bouncing off the neon grid) makes every line pop. */
-.overlay-section h1,
-.overlay-section h2,
-.overlay-section h3,
-.overlay-section p,
-.overlay-section li,
-.overlay-section span,
-.overlay-section a,
-.overlay-section button {
-  text-shadow:
-    0 1px 3px rgba(2, 4, 8, 0.95),
-    0 0 14px rgba(2, 4, 8, 0.85),
-    0 3px 20px rgba(82, 230, 255, 0.28),
-    0 -2px 18px rgba(82, 230, 255, 0.18),
-    0 0 44px rgba(82, 230, 255, 0.14),
-    0 6px 48px rgba(2, 4, 8, 0.7);
-}
-/* stronger rim on display headings — the light really leaks from behind */
-.overlay-section h1,
-.overlay-section .text-display,
-.overlay-section .text-title {
-  text-shadow:
-    0 1px 3px rgba(2, 4, 8, 0.95),
-    0 0 18px rgba(2, 4, 8, 0.85),
-    0 4px 34px rgba(82, 230, 255, 0.55),
-    0 -2px 26px rgba(82, 230, 255, 0.32),
-    0 0 60px rgba(82, 230, 255, 0.22),
-    0 8px 64px rgba(2, 4, 8, 0.7);
-}
-.overlay-section .cyan {
-  text-shadow:
-    0 1px 3px rgba(2, 4, 8, 0.95),
-    0 0 20px rgba(2, 4, 8, 0.8),
-    0 0 18px rgba(82, 230, 255, 0.45),
-    0 0 42px rgba(82, 230, 255, 0.2) !important;
-}
-.overlay-section .violet {
-  text-shadow:
-    0 1px 3px rgba(2, 4, 8, 0.95),
-    0 0 20px rgba(2, 4, 8, 0.8),
-    0 0 18px rgba(139, 107, 255, 0.45),
-    0 0 42px rgba(139, 107, 255, 0.2) !important;
-}
-
 ::selection { background: var(--cyan-soft); }
 
 /* ---------- scroll journey spacer ---------- */
@@ -356,6 +310,47 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .scroll-hint .hint-caret { animation: none; }
 }
+
+/* ---------- skill grid span: SECURITY full-width on mobile ---------- */
+.skill-span { grid-column: 1 / -1; }
+
+/* ---------- text-rim: stronger backlit glow so copy floats over the scene ---------- */
+.overlay-section h1,
+.overlay-section h2,
+.overlay-section h3,
+.overlay-section p,
+.overlay-section span,
+.overlay-section li,
+.overlay-section a,
+.overlay-section button {
+  text-shadow:
+    0 1px 2px rgba(3, 5, 10, 1),
+    0 0 12px rgba(3, 5, 10, 0.9),
+    0 0 26px rgba(3, 5, 10, 0.75),
+    0 0 54px rgba(3, 5, 10, 0.5);
+}
+/* borders of light — headings get a real rim that reads as light pouring from behind */
+.overlay-section .text-display,
+.overlay-section .text-title {
+  text-shadow:
+    0 1px 2px rgba(3, 5, 10, 1),
+    0 0 14px rgba(3, 5, 10, 0.95),
+    0 0 30px rgba(3, 5, 10, 0.8),
+    0 3px 34px rgba(79, 216, 255, 0.5),
+    0 -2px 26px rgba(79, 216, 255, 0.35),
+    0 0 70px rgba(79, 216, 255, 0.28),
+    0 10px 70px rgba(3, 5, 10, 0.7);
+}
+.overlay-section .cyan { text-shadow:
+    0 1px 2px rgba(3, 5, 10, 1),
+    0 0 12px rgba(3, 5, 10, 0.9),
+    0 0 24px rgba(79, 216, 255, 0.6),
+    0 0 52px rgba(79, 216, 255, 0.32) !important; }
+.overlay-section .violet { text-shadow:
+    0 1px 2px rgba(3, 5, 10, 1),
+    0 0 12px rgba(3, 5, 10, 0.9),
+    0 0 24px rgba(148, 112, 255, 0.6),
+    0 0 52px rgba(148, 112, 255, 0.32) !important; }
 
 /* ---------- LED / pulse ---------- */
 @keyframes pulse-dot {

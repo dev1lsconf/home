@@ -173,8 +173,7 @@ export default function Overlay() {
               {content.skills.map((s) => (
                 <div
                   key={s.cat}
-                  className="hud-panel"
-                  style={s.cat === "SECURITY" ? { gridColumn: "1 / -1" } : undefined}
+                  className={s.cat === "SECURITY" ? "hud-panel skill-span" : "hud-panel"}
                 >
                   <h3 className="font-hud text-hud violet">{s.cat}</h3>
                   <ul className="mt-2 flex flex-wrap gap-1.5 list-none p-0">
