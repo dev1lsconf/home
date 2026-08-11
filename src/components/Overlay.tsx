@@ -259,22 +259,22 @@ export default function Overlay() {
         <section ref={setRef("contact")} className="overlay-section" aria-label="Contact" id="contact-anchor">
           <div className="w-full max-w-2xl">
             <p className="font-hud text-hud cyan mb-3">09 // CONSTRUYAMOS ALGO</p>
-            <h2 className="text-title" style={{ fontSize: "clamp(1.2rem, 3.6vmin, 2.2rem)", whiteSpace: "nowrap" }}>
-              ¿Tienes un proyecto, una idea o un reto técnico?
+            <h2 className="text-title" style={{ fontSize: "clamp(1.15rem, 4.4vmin, 2rem)", lineHeight: 1.15 }}>
+              ¿Tienes un proyecto, una idea<br className="hidden sm:inline" /> o un reto técnico?
             </h2>
-            <div className="flex flex-wrap gap-2.5 mt-5">
-              <a className="btn" href={`mailto:${content.contact.email}`}>CONTACT ME</a>
-              <a className="btn btn-ghost" href={content.contact.github} target="_blank" rel="noreferrer">
-                VIEW GITHUB
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 mt-5">
+              <a className="btn justify-center" href={`mailto:${content.contact.email}`}>CONTACTO</a>
+              <a className="btn btn-ghost justify-center" href={content.contact.github} target="_blank" rel="noreferrer">
+                GITHUB
               </a>
-              <a className="btn btn-ghost" href={content.contact.linkedin} target="_blank" rel="noreferrer">
-                VIEW LINKEDIN
+              <a className="btn btn-ghost justify-center" href={content.contact.linkedin} target="_blank" rel="noreferrer">
+                LINKEDIN
               </a>
               <a
-                className="btn btn-ghost"
+                className="btn btn-ghost justify-center"
                 href={`mailto:${content.contact.email}?subject=${encodeURIComponent("Solicitud de CV")}`}
               >
-                REQUEST CV
+                CV
               </a>
             </div>
             <div className="mt-6">
