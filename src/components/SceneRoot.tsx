@@ -1,6 +1,6 @@
 "use client";
 import { Component, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { subscribe, store, setQuality, setWebGL } from "@/lib/store";
 import { PRESETS, qualityFromTier, qualityTier, type Quality } from "@/lib/quality";
 import CameraRig from "./scene/CameraRig";
@@ -28,6 +28,19 @@ class GLBoundary extends Component<
   render() {
     return this.state.crashed ? null : this.props.children;
   }
+}
+
+/* ---------- demand-mode driver: scroll must invalidate frames on mobile ---------- */
+function DemandDriver() {
+  const invalidate = useThree((s) => s.invalidate);
+  useEffect(
+    () =>
+      subscribe(() => {
+        invalidate();
+      }),
+    [invalidate],
+  );
+  return null;
 }
 
 /* ---------- FPS watchdog: sustained low fps → auto downgrade ---------- */
@@ -64,6 +77,7 @@ function SceneWorld({ quality }: { quality: Quality }) {
   return (
     <>
       <fog attach="fog" args={["#05060a", 8, 46]} />
+      <DemandDriver />
       <CameraRig />
       <FPSWatchdog />
       <ServerRoom racks={preset.racks} />

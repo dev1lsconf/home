@@ -16,20 +16,31 @@ export function useScrollRig() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    const compute = () => {
+      const doc = document.documentElement;
+      const max = Math.max(1, doc.scrollHeight - window.innerHeight);
+      const p = Math.min(1, Math.max(0, window.scrollY / max));
+      setProgress(p);
+      setSection(sectionAt(p));
+    };
+
     if (!store.reducedMotion) {
       gsap.registerPlugin(ScrollTrigger);
+      // on mobile the height changes (address bar) — keep measurements fresh
+      ScrollTrigger.config({ ignoreMobileResize: false, autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize" });
       const st = ScrollTrigger.create({
         start: 0,
         end: () => Math.max(1, document.documentElement.scrollHeight - window.innerHeight),
-        onUpdate: (self) => {
-          setProgress(self.progress);
-          setSection(sectionAt(self.progress));
-        },
+        onUpdate: () => compute(),
       });
-      // ensure measure is correct after fonts/layout settle
+      // plain scroll listener as a real-time co-pilot: some mobile browsers
+      // fire scroll events that ScrollTrigger's proxy misses
+      window.addEventListener("scroll", compute, { passive: true });
+      window.addEventListener("resize", () => ScrollTrigger.refresh());
       const t = setTimeout(() => ScrollTrigger.refresh(), 500);
       return () => {
         clearTimeout(t);
+        window.removeEventListener("scroll", compute);
         st.kill();
       };
     }

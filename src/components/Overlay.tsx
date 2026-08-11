@@ -132,10 +132,10 @@ export default function Overlay() {
         <section ref={setRef("cables")} className="overlay-section" aria-label="Data in transit">
           <div className="w-full max-w-full text-center px-2">
             <p className="font-hud text-hud cyan mb-4">02 // EN TRÁNSITO</p>
-            <h2 className="text-title" style={{ fontSize: "clamp(1.5rem, 5.6vmin, 3.2rem)", whiteSpace: "nowrap" }}>
+            <h2 className="text-title" style={{ fontSize: "clamp(1.05rem, 5vmin, 3rem)", lineHeight: 1.08 }}>
               Cada byte viaja a través de <span className="cyan">infraestructura real</span>.
             </h2>
-            <ul className="mt-8 flex flex-wrap justify-center gap-2.5 list-none p-0">
+            <ul className="mt-6 flex flex-wrap justify-center gap-2 list-none p-0">
               {PROTOCOLS.map((p) => (
                 <li key={p} className="chip">{p}</li>
               ))}
@@ -164,7 +164,7 @@ export default function Overlay() {
         <section ref={setRef("skills")} className="overlay-section" aria-label="Technologies">
           <div className="w-full max-w-4xl">
             <p className="font-hud text-hud cyan mb-5">04 // STACK</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
               {content.skills.map((s) => (
                 <div key={s.cat} className="hud-panel">
                   <h3 className="font-hud text-hud violet">{s.cat}</h3>

@@ -155,10 +155,10 @@ body {
 /* ---------- shared UI atoms ---------- */
 .chip {
   font-family: var(--font-plex-mono), ui-monospace, Menlo, monospace;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  padding: 0.5rem 0.95rem;
+  letter-spacing: 0.1em;
+  padding: 0.42rem 0.75rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--dim);
