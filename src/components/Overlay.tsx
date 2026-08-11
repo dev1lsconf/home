@@ -135,8 +135,8 @@ export default function Overlay() {
             <h2 className="text-title" style={{ fontSize: "clamp(1.05rem, 5vmin, 3rem)", lineHeight: 1.08 }}>
               Transformo ideas complejas en <span className="cyan">productos web que funcionan</span>.
             </h2>
-            <p className="text-lead dim mt-4 max-w-xl mx-auto" style={{ fontSize: "clamp(0.95rem, 3.6vmin, 1.5rem)", lineHeight: 1.45 }}>
-              No son solo webs: son herramientas que resuelven problemas reales,
+            <p className="text-lead dim mt-4 max-w-xl mx-auto" style={{ fontSize: "clamp(0.92rem, 2.8vmin, 1.35rem)", lineHeight: 1.5 }}>
+              No son solo webs: son herramientas que resuelven problemas reales,<br />
               cargan rápido y escalan con tu negocio.
             </p>
             <ul className="mt-6 flex flex-wrap justify-center gap-2 list-none p-0">
