@@ -14,10 +14,6 @@ const posTarget = new THREE.Vector3();
  * Does nothing in reduced-motion mode (sections crossfade statically).
  */
 export default function CameraRig() {
-  const fovRef = {
-    current: 55,
-  };
-
   useFrame(({ camera }, delta) => {
     if (store.reducedMotion) return;
     const { pos, look, fov } = sampleCam(store.progress);
@@ -30,11 +26,8 @@ export default function CameraRig() {
     camera.lookAt(lookTarget);
 
     const persp = camera as THREE.PerspectiveCamera;
-    fovRef.current += (fov - fovRef.current) * k;
-    if (Math.abs(persp.fov - fovRef.current) > 0.01) {
-      persp.fov = fovRef.current;
-      persp.updateProjectionMatrix();
-    }
+    persp.fov += (fov - persp.fov) * k;
+    persp.updateProjectionMatrix();
   });
   return null;
 }

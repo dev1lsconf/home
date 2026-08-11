@@ -4,6 +4,15 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { store } from "@/lib/store";
 
+/** deterministic rng for stable particles across re-renders */
+function makeRng(seedBase: number) {
+  let s = seedBase >>> 0;
+  return () => {
+    s = (s * 16807) % 2147483647;
+    return s / 2147483647;
+  };
+}
+
 /**
  * Dust — ambient floating particles around the whole journey path.
  * Count is preset-driven (3000 / 1000 / 300). One draw call.
@@ -13,13 +22,14 @@ export default function Dust({ count }: { count: number }) {
   const ref = useRef<THREE.Points>(null);
 
   const { positions, speeds } = useMemo(() => {
+    const rng = makeRng(7);
     const positions = new Float32Array(count * 3);
     const speeds = new Float32Array(count);
     for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 14;
-      positions[i * 3 + 1] = Math.random() * 6;
-      positions[i * 3 + 2] = 6 - Math.random() * 64; // spread along journey z
-      speeds[i] = 0.2 + Math.random() * 0.8;
+      positions[i * 3] = (rng() - 0.5) * 14;
+      positions[i * 3 + 1] = rng() * 6;
+      positions[i * 3 + 2] = 6 - rng() * 64; // spread along journey z
+      speeds[i] = 0.2 + rng() * 0.8;
     }
     return { positions, speeds };
   }, [count]);

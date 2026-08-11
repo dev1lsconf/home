@@ -1,10 +1,20 @@
 "use client";
 import { useMemo, useRef } from "react";
+import * as React from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { store } from "@/lib/store";
 
 const RACK_W = 0.72, RACK_H = 2.3, RACK_D = 1.0, AISLE = 2.3;
+
+/** deterministic rng for stable LED seeds across renders */
+function makeRng(seedBase: number) {
+  let s = (seedBase >>> 0) || 1;
+  return () => {
+    s = (s * 16807) % 2147483647;
+    return s / 2147483647;
+  };
+}
 
 interface RackInfo {
   x: number;
@@ -25,7 +35,7 @@ export default function ServerRoom({ racks }: { racks: number }) {
   const heroStatusRef = useRef<THREE.Mesh>(null);
   const fanRef = useRef<THREE.Group>(null);
 
-  const dummy = useMemo(() => new THREE.Object3D(), []);
+const dummy = useMemo(() => new THREE.Object3D(), []);
   const ledColor = useMemo(() => new THREE.Color(), []);
 
   // two aisles of racks forming a corridor the camera walks down (-z)
@@ -46,6 +56,7 @@ export default function ServerRoom({ racks }: { racks: number }) {
 
   // 10 LEDs per rack on the front face — dense enough to read as a server bank
   const ledOffsets = useMemo(() => {
+    const rng = makeRng(77);
     const arr: { x: number; y: number; z: number; face: 1 | -1; seed: number; hue: number }[] = [];
     for (let r = 0; r < rackList.length; r++) {
       const rk = rackList[r];
@@ -56,8 +67,8 @@ export default function ServerRoom({ racks }: { racks: number }) {
           y: 0.45 + Math.floor(i / 5) * 1.35,
           z: rk.z - 0.32 + (i % 5) * 0.16,
           face: rk.face,
-          seed: Math.random() * 100,
-          hue: Math.random() < 0.78 ? 0.52 : 0.72,
+          seed: rng() * 100,
+          hue: rng() < 0.78 ? 0.52 : 0.72,
         });
       }
     }
@@ -67,12 +78,13 @@ export default function ServerRoom({ racks }: { racks: number }) {
   // hero activity LEDs (faster blink, brighter)
   const heroLeds = useMemo(() => {
     if (!hero) return [];
+    const rng = makeRng(99);
     const fx = hero.x + hero.face * (RACK_W / 2 + 0.02);
     return Array.from({ length: 14 }, (_, i) => ({
       x: fx,
       y: 0.5 + (i % 7) * 0.24,
       z: hero.z - 0.3 + Math.floor(i / 7) * 0.5,
-      seed: Math.random() * 100,
+      seed: rng() * 100,
     }));
   }, [hero]);
 

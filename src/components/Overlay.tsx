@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { subscribe, store, type SectionId } from "@/lib/store";
 import { content } from "@/lib/content";
 import ProgressRail from "./ui/ProgressRail";
@@ -76,9 +76,11 @@ export default function Overlay() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setRef = (id: SectionId) => (el: HTMLElement | null) => {
+  const setRef = useCallback((id: SectionId) => (el: HTMLElement | null) => {
     refs.current[id] = el;
-  };
+    // tunnel current state into the el for strict-mode correctness
+    if (el) el.dataset.section = id;
+  }, []);
 
   return (
     <>
