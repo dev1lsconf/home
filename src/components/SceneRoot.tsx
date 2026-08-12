@@ -43,7 +43,7 @@ function DemandDriver() {
   return null;
 }
 
-/* ---------- FPS watchdog: sustained low fps → auto downgrade ---------- */
+/* ---------- FPS watchdog: only downgrade if really sustained ---------- */
 function FPSWatchdog() {
   const frames = useRef(0);
   const started = useRef(0);
@@ -58,11 +58,14 @@ function FPSWatchdog() {
     const now = performance.now();
     if (started.current === 0) started.current = now;
     const elapsed = now - started.current;
-    if (elapsed < 4000) return; // warmup window
+    if (elapsed < 5000) return; // longer warmup (first paints lie)
     warmed.current = true;
     const fps = (frames.current / elapsed) * 1000;
-    if (fps < 30) {
-      const next = qualityFromTier(qualityTier(store.quality) - 1);
+    // only downgrade if we're clearly below 20fps, never jump straight to fallback
+    if (fps < 20) {
+      const tier = qualityTier(store.quality);
+      // never drop to "fallback" automatically — fallback needs no WebGL
+      const next = tier <= 2 ? "medium" : "low";
       if (next !== store.quality) {
         console.info(`[scene] low fps (${fps.toFixed(0)}) → downgrading to ${next}`);
         setQuality(next);

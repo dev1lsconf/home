@@ -1,11 +1,11 @@
 "use client";
 import dynamic from "next/dynamic";
-import SceneFallback from "./SceneFallback";
 
-// The 3D scene never blocks SSR of the content — it hydrates client-side.
+// SceneRoot loads client-side. While it loads: nothing renders in its place —
+// the page overlays show your content from the first paint.
 const SceneRoot = dynamic(() => import("./SceneRoot"), {
   ssr: false,
-  loading: () => <SceneFallback />,
+  loading: () => null,
 });
 
 export default function SceneLoader() {
